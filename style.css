@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    background-color: rgb(40, 40, 40);
+    color: white;
+    margin: 0;
+    text-align: center;
+}
+
+h1, button, select, footer {
+    font-family: 'Press Start 2P', cursive;
+}
+
+button, select {
+    margin: 10px;
+}
+
+footer {
+    background-color: black;
+    border-radius: 20px 20px 0 0;
+    bottom: 0;
+    padding: 20px;
+    position: fixed;
+    width: calc(100% - 40px);
+}
+
+.square {
+    margin: 1px;
+    width: 5%;
+    height: calc(90vw * .05);
+    background-color: lightgrey;
+}
+
+.row {
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+
+.red {
+    background-color: red;
+}
+
+.black {
+    background-color: black;;
+}
