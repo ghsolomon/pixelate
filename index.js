@@ -3,32 +3,20 @@ const canvas = document.querySelector('#canvas');
 const colorPicker = document.querySelector('#color-picker');
 
 const populateColorPicker = () => {
-  const color = [];
-  for (let i = 0; i < 3; i++) {
-    color.push(document.createElement('OPTION'));
-  }
-  (color[0].text = 'Red'), (color[0].value = 'red');
-  (color[1].text = 'Black'), (color[1].value = 'black');
-  (color[2].text = 'Clear'), (color[2].value = 'clear');
-  for (let i = 0; i < 3; i++) {
-    colorPicker.add(color[i]);
-  }
+  colorPicker.innerHTML = `
+  <option value="red">Red</option>
+  <option value="black">Black</option>
+  `;
 };
 
 const squareClicked = (e) => {
-  switch (colorPicker.value) {
-    case 'black':
-      e.target.classList.add('black');
-      e.target.classList.remove('red');
-      break;
-    case 'red':
-      e.target.classList.remove('black');
-      e.target.classList.add('red');
-      break;
-    default:
-      e.target.classList.remove('black');
-      e.target.classList.remove('red');
-      break;
+  if (!e.target.classList.contains('square')) return;
+  if (colorPicker.value === 'black') {
+    e.target.classList.toggle('black');
+    e.target.classList.remove('red');
+  } else {
+    e.target.classList.remove('black');
+    e.target.classList.toggle('red');
   }
 };
 
@@ -38,7 +26,6 @@ const addRow = () => {
   for (let i = 0; i < 20; i++) {
     let square = document.createElement('div');
     square.classList.add('square');
-    square.addEventListener('click', squareClicked);
     row.append(square);
   }
   canvas.append(row);
@@ -47,3 +34,4 @@ const addRow = () => {
 };
 
 addRowButton.addEventListener('click', addRow);
+canvas.addEventListener('click', squareClicked);
