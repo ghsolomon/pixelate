@@ -9,6 +9,7 @@ body {
 
 h1, button, select, footer {
     font-family: 'Press Start 2P', cursive;
+    padding: 0.1rem;
 }
 
 button, select {
